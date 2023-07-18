@@ -87,7 +87,7 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 // total months in dataset
-var totalMonths = finances.length 
+var totalMonths = finances.length
 
 // total profit/losses initialised to zero
 var netTotal = 0
@@ -137,3 +137,8 @@ netTotal += currentProfit
 // calculates the average chnage
 var averageChange = totalChange / (totalMonths - 1);
 
+console.log("Total number of months included in the Dataset", totalMonths);
+console.log("Net Total aont of Pofit/Losses over the total time period", netTotal);
+console.log("Average Chaneg in Pofit/Losses over the total time period", averageChange.toFixed(2));
+console.log("Greatest Increase in Profits", greatestIncrease.date, greatestIncrease.amount);
+console.log("Greatest Decrease in Losses", greatestDecrease.date, greatestDecreaseIncrease.amount);
