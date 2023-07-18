@@ -133,3 +133,7 @@ netTotal += currentProfit
     }
   }
 }
+
+// calculates the average chnage
+var averageChange = totalChange / (totalMonths - 1);
+
