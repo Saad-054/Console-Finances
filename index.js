@@ -147,6 +147,8 @@ function formatCurrency(number) {
   return formattedNumber.replace(/,/g, '');
 }
 
+console.log("Financial Analysis");
+console.log("----------------------------");
 console.log("Total Months", totalMonths);
 console.log("Total", netTotal);
 console.log("Average Chaneg", (averageChange.toFixed(2)));
