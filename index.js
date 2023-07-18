@@ -87,34 +87,34 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 // total months in dataset
-var totalMonths = finances.length
+var totalMonths = finances.length;
 
 // total profit/losses initialised to zero
-var netTotal = 0
+var netTotal = 0;
 
 // total profit/losses initialised to zero
-var totalChange = 0
+var totalChange = 0;
 
 // greatest increase in profits from dataset
 var greatestIncrease = {
   date: '',
-  amount: Infinity
+  amount: -Infinity,
 };
 
 // greatest decrease in losses from dataset
 var greatestDecrease = {
   date: '',
-  amount: Infinity
+  amount: Infinity,
 };
 
 for (var i = 0; i < finances.length; i++) {
   // shows the the Profi?loss for the month
   var currentProfit = finances[i][1];
   // adds running total
-netTotal += currentProfit
+  netTotal += currentProfit;
 
   // used to ensure change commences from second month, as no chnage is present in the first month
-  if (i < 0) {
+  if (i > 0) {
     // shows the Profit/Loss for the previous month, which is used to calculate the change
     var prevProfit = finances[i - 1][1];
     // difference between the Profit for the current month and previous month
@@ -122,14 +122,14 @@ netTotal += currentProfit
     // adds chnages to total changes
     totalChange += change;
 
-    if (chnage > greatestIncrease.amount) {
+    if (change > greatestIncrease.amount) {
       greatestIncrease.amount = change;
-      greatestIncrease.date = finances[i][0]
+      greatestIncrease.date = finances[i][0];
     }
 
-    if (chnage < greatestDecrease.amount) {
+    if (change < greatestDecrease.amount) {
       greatestDecrease.amount = change;
-      greatestDecrease.date = finances[i][0]
+      greatestDecrease.date = finances[i][0];
     }
   }
 }
@@ -141,4 +141,4 @@ console.log("Total number of months included in the Dataset", totalMonths);
 console.log("Net Total aont of Pofit/Losses over the total time period", netTotal);
 console.log("Average Chaneg in Pofit/Losses over the total time period", averageChange.toFixed(2));
 console.log("Greatest Increase in Profits", greatestIncrease.date, greatestIncrease.amount);
-console.log("Greatest Decrease in Losses", greatestDecrease.date, greatestDecreaseIncrease.amount);
+console.log("Greatest Decrease in Losses", greatestDecrease.date, greatestDecrease.amount);
