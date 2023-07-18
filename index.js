@@ -86,3 +86,24 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+// total months in dataset
+var totalMonths = finances.length 
+
+// total profit/losses initialised to zero
+var netTotal = 0
+
+// total profit/losses initialised to zero
+var totalChange = 0
+
+// greatest increase in profits from dataset
+var greatestIncrease = {
+  date: '',
+  amount: Infinity
+};
+
+// greatest decrease in losses from dataset
+var greatestDecrease = {
+  date: '',
+  amount: Infinity
+};
+
