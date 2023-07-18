@@ -89,10 +89,10 @@ var finances = [
 // total months in dataset
 var totalMonths = finances.length;
 
-// total profit/losses initialised to zero
+// total Profits/Losses initialised to zero
 var netTotal = 0;
 
-// total profit/losses initialised to zero
+// total Profits/Losses initialised to zero
 var totalChange = 0;
 
 // greatest increase in profits from dataset
@@ -115,7 +115,7 @@ for (var i = 0; i < finances.length; i++) {
 
   // used to ensure change commences from second month, as no chnage is present in the first month
   if (i > 0) {
-    // shows the Profit/Loss for the previous month, which is used to calculate the change
+    // shows the Profits/Losses for the previous month, which is used to calculate the change
     var prevProfit = finances[i - 1][1];
     // difference between the Profit for the current month and previous month
     var change = currentProfit - prevProfit;
@@ -137,8 +137,18 @@ for (var i = 0; i < finances.length; i++) {
 // calculates the average chnage
 var averageChange = totalChange / (totalMonths - 1);
 
-console.log("Total number of months included in the Dataset", totalMonths);
-console.log("Net Total aont of Pofit/Losses over the total time period", netTotal);
-console.log("Average Chaneg in Pofit/Losses over the total time period", averageChange.toFixed(2));
-console.log("Greatest Increase in Profits", greatestIncrease.date, greatestIncrease.amount);
-console.log("Greatest Decrease in Losses", greatestDecrease.date, greatestDecrease.amount);
+// formats number
+function formatCurrency(number) {
+  // number converted to integeer without decimal places
+  var integerNumber = parseInt(number, 10);
+  // makes currency with US $, without decimal places
+  var formattedNumber = integerNumber.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  // removes commas for large numbers
+  return formattedNumber.replace(/,/g, '');
+}
+
+console.log("Total Months", totalMonths);
+console.log("Total", netTotal);
+console.log("Average Chaneg", (averageChange.toFixed(2)));
+console.log("Greatest Increase in Profits/Losses", greatestIncrease.date, formatCurrency(greatestIncrease.amount));
+console.log("Greatest Decrease in Profits/Losses", greatestDecrease.date, formatCurrency(greatestDecrease.amount));
