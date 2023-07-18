@@ -147,6 +147,7 @@ function formatCurrency(number) {
   return formattedNumber.replace(/,/g, '');
 }
 
+// console log
 console.log("Financial Analysis");
 console.log("----------------------------");
 console.log("Total Months", totalMonths);
