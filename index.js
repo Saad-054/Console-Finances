@@ -107,3 +107,29 @@ var greatestDecrease = {
   amount: Infinity
 };
 
+for (var i = 0; i < finances.length; i++) {
+  // shows the the Profi?loss for the month
+  var currentProfit = finances[i][1];
+  // adds running total
+netTotal += currentProfit
+
+  // used to ensure change commences from second month, as no chnage is present in the first month
+  if (i < 0) {
+    // shows the Profit/Loss for the previous month, which is used to calculate the change
+    var prevProfit = finances[i - 1][1];
+    // difference between the Profit for the current month and previous month
+    var change = currentProfit - prevProfit;
+    // adds chnages to total changes
+    totalChange += change;
+
+    if (chnage > greatestIncrease.amount) {
+      greatestIncrease.amount = change;
+      greatestIncrease.date = finances[i][0]
+    }
+
+    if (chnage < greatestDecrease.amount) {
+      greatestDecrease.amount = change;
+      greatestDecrease.date = finances[i][0]
+    }
+  }
+}
